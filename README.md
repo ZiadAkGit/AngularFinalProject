@@ -1,6 +1,6 @@
 # 🎉 FinalProject
 
-Welcome to **FinalProject**, the ultimate Angular project by **Ziad Abu Khadra & Nour**! 🚀 This project was built using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+Welcome to **FinalProject**, the ultimate Angular project by **Ziad & Nour**! 🚀 This project was built using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
 
 ## 🚀 Getting Started
 
