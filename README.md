@@ -1,6 +1,6 @@
 # 🎉 FinalProject
 
-Welcome to **Barder Application Project**, the ultimate Angular project by **Ziad & Nour**! 🚀 This project was built using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+Welcome to **FinalProject**, the ultimate Angular project by **Ziad Abu Khadra & Nour**! 🚀 This project was built using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
 
 ## 🚀 Getting Started
 
@@ -21,6 +21,11 @@ ng serve
 Once started, open your browser and navigate to [http://localhost:4200/](http://localhost:4200/). The app will automatically reload when you modify any source files.
 
 ### 3️⃣ Start the JSON Server (Fake Backend)
+
+If you haven't installed `json-server`, you can install it globally by running:
+```bash
+npm install -g json-server
+```
 For database operations, start the JSON server by running:
 ```bash
 json-server --watch public/assets/users.json --port 3000
@@ -38,3 +43,4 @@ Need more help? Check out these links:
 - [JSON Server Guide](https://github.com/typicode/json-server)
 
 Happy coding! 🚀🔥
+
