@@ -1,0 +1,42 @@
+<nav>
+  <ul>
+    <li><a routerLink="/all_appointments">All Appointments</a></li>
+    <li><a routerLink="/new_appointments">New Appointments</a></li>
+    <li><a routerLink="/profile">Profile</a></li>
+  </ul>
+</nav>
+
+<h1>Today's Appointments</h1>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Phone Number</th>
+        <th>Haircut</th>
+        <th>Remove</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of todays_appointments">
+        <td>{{ appointment.customerName }}</td>
+        <td>{{ appointment.time }}</td>
+        <td>{{ appointment.phone }}</td>
+        <td>{{ appointment.haircut }}</td>
+        <td><button (click)="remove(appointment)">Remove</button></td>
+        <td>
+          <button (click)="edit(appointment)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="home-buttons">
+  <a routerLink="/new_appointments">Add Appointment</a>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,19 @@
+div {
+  margin-bottom: 20px;
+  text-align: center;
+}
+input {
+  width: 10%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+label {
+  display: block;
+  margin: 5px 0;
+  font-size: 26px;
+  color: #dddddd;
+}

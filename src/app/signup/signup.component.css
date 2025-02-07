@@ -1,0 +1,72 @@
+.register-container {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: -2%;
+}
+h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="time"] {
+  width: fit-content;
+  margin-top: 1%;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group small {
+  color: white;
+  display: block;
+  margin-top: 5px;
+  font-size: 1em;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+input.ng-invalid {
+  border-color: rgb(220, 81, 81);
+  border-width: 0.2em;
+}
+#remove {
+  cursor: pointer;
+  width: 35%;
+}

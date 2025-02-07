@@ -1,0 +1,156 @@
+html {
+  background-color: transparent;
+  background-image: url("../public/assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+body {
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  color: #ffffff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: 15%;
+}
+img {
+  margin: 0 auto;
+  margin-top: 2%;
+  width: 15%;
+  height: auto;
+}
+button,
+a {
+  margin-inline: 1.5%;
+  font-size: 28px;
+  display: inline-block;
+  padding: 2%;
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover,
+button:hover {
+  background-color: rgba(0, 0, 0, 0.324);
+  color: #0d1b2a;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: darkgray;
+}
+
+table th,
+table td {
+  border: 1px solid #0d1b2a;
+  padding: 10px;
+  text-align: center;
+}
+select {
+  margin-bottom: 5%;
+  width: fit-content;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+}
+table th {
+  background-color: #dddddd;
+  color: #0d1b2a;
+}
+
+table tr:nth-child(even) {
+  background-color: gray;
+}
+input {
+  width: 10%;
+  padding: 10px;
+  margin-bottom: 7px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 26px;
+  color: #dddddd;
+}
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  color: #dddddd;
+}
+
+nav {
+  padding-top: 5px; /* Reduced padding for a sleek look */
+  background-color: gray; /* Dark background for contrast */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+  margin-bottom: 4%;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+nav li {
+  margin: 0; /* Spacing between items */
+  width: fit-content;
+  padding: 5px;
+}
+
+nav a {
+  color: #ffffff; /* White text for contrast */
+  text-decoration: none;
+  font-size: 20px; /* Slightly larger font for readability */
+  font-weight: 500;
+  border: 2px solid transparent; /* Transparent border for hover effect */
+  transition: all 0.3s ease-in-out; /* Smooth hover transition */
+  display: inline-block;
+  text-align: center;
+  padding: 0;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  border: 2px solid #ffffff; /* White border on hover */
+  color: #ffcc00; /* Gold color for hover */
+}
+
+/* Active route styling */
+nav .active {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Subtle background for active link */
+  border: 2px solid #ffcc00; /* Gold border for active link */
+  color: #ffcc00; /* Gold color for active link */
+  font-weight: 600; /* Bold for emphasis */
+}

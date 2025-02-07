@@ -1,0 +1,90 @@
+<nav>
+  <ul>
+    <li><a routerLink="/today_appointments">Today's Appointments</a></li>
+    <li><a routerLink="/all_appointments">All Appointments</a></li>
+    <li><a routerLink="/profile">Profile</a></li>
+  </ul>
+</nav>
+
+<h1>New Appointment</h1>
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="customerName">Customer Name:</label>
+    <input
+      type="text"
+      id="customerName"
+      formControlName="customerName"
+      placeholder="Enter Customer Name"
+    />
+    <div
+      *ngIf="
+        appointmentForm.get('customerName')?.invalid &&
+        appointmentForm.get('customerName')?.touched
+      "
+    >
+      <small class="error">Customer name is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" formControlName="date" />
+    <div
+      *ngIf="
+        appointmentForm.get('date')?.invalid &&
+        appointmentForm.get('date')?.touched
+      "
+    >
+      <small class="error">Date is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="time">Time:</label>
+    <input type="time" id="time" formControlName="time" />
+    <div
+      *ngIf="
+        appointmentForm.get('time')?.invalid &&
+        appointmentForm.get('time')?.touched
+      "
+    >
+      <small class="error">Time is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="phoneNumber">Phone Number:</label>
+    <input
+      type="tel"
+      id="phoneNumber"
+      formControlName="phoneNumber"
+      placeholder="Enter Phone Number"
+    />
+    <div
+      *ngIf="
+        appointmentForm.get('phoneNumber')?.invalid &&
+        appointmentForm.get('phoneNumber')?.touched
+      "
+    >
+      <small class="error">Phone number is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="haircut">Haircut Type:</label>
+    <select formControlName="haircut">
+      <option *ngFor="let haircut of haircuts" [value]="haircut.description">
+        {{ haircut.description }}
+      </option>
+    </select>
+  </div>
+
+  <div class="home-buttons">
+    <button type="submit" [disabled]="appointmentForm.invalid">
+      Add Appointment
+    </button>
+    <button type="button" routerLink="/all_appointments">
+      All Appointments
+    </button>
+  </div>
+</form>

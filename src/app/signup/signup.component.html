@@ -1,0 +1,251 @@
+<nav>
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/signin">Signin</a></li>
+    <li><a routerLink="/aboutus">About Us</a></li>
+  </ul>
+</nav>
+<div class="register-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSignup()">
+    <fieldset>
+      <h1>Sign Up:</h1>
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input
+          type="text"
+          id="fullName"
+          formControlName="fullName"
+          placeholder="Enter your full name"
+        />
+        <div
+          *ngIf="
+            registerForm.get('fullName')?.touched &&
+            registerForm.get('fullName')?.invalid
+          "
+        >
+          <small *ngIf="registerForm.get('fullName')?.errors?.['required']">
+            Full Name is required.
+          </small>
+          <small *ngIf="registerForm.get('fullName')?.errors?.['minlength']">
+            Full Name must be at least 3 characters.
+          </small>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <div
+          *ngIf="
+            registerForm.get('email')?.touched &&
+            registerForm.get('email')?.invalid
+          "
+        >
+          <small *ngIf="registerForm.get('email')?.errors?.['required']">
+            Email is required.
+          </small>
+          <small *ngIf="registerForm.get('email')?.errors?.['email']">
+            Invalid email format.
+          </small>
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          placeholder="Enter your phone number"
+        />
+        <div
+          *ngIf="
+            registerForm.get('phoneNumber')?.touched &&
+            registerForm.get('phoneNumber')?.invalid
+          "
+        >
+          <small *ngIf="registerForm.get('phoneNumber')?.errors?.['required']">
+            Phone Number is required.
+          </small>
+          <small *ngIf="registerForm.get('phoneNumber')?.errors?.['pattern']">
+            Phone number must be valid and formatted correctly.
+          </small>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <div
+          *ngIf="
+            registerForm.get('password')?.touched &&
+            registerForm.get('password')?.invalid
+          "
+        >
+          <small *ngIf="registerForm.get('password')?.errors?.['required']">
+            Password is required.
+          </small>
+          <small *ngIf="registerForm.get('password')?.errors?.['minlength']">
+            Password must be at least 8 characters long.
+          </small>
+          <small *ngIf="registerForm.get('password')?.errors?.['pattern']">
+            Password must include uppercase, lowercase, digit, and special
+            character.
+          </small>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirm_password"
+          formControlName="confirm_password"
+          placeholder="Confirm password"
+        />
+        <div
+          *ngIf="
+            registerForm.get('confirm_password')?.touched &&
+            registerForm.get('confirm_password')?.invalid
+          "
+        >
+          <small
+            *ngIf="registerForm.get('confirm_password')?.errors?.['required']"
+          >
+            Confirm Password is required.
+          </small>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Pricing Section -->
+    <fieldset>
+      <h2>Pricing</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="pricing">
+          <tr
+            *ngFor="let pricingRow of pricing.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <td>
+              <input
+                type="number"
+                formControlName="price"
+                placeholder="Enter price"
+              />
+              <div
+                *ngIf="
+                  pricingRow.get('price')?.touched &&
+                  pricingRow.get('price')?.invalid
+                "
+              >
+                <small *ngIf="pricingRow.get('price')?.errors?.['required']">
+                  Price is required.
+                </small>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                formControlName="description"
+                placeholder="Enter description"
+              />
+              <div
+                *ngIf="
+                  pricingRow.get('description')?.touched &&
+                  pricingRow.get('description')?.invalid
+                "
+              >
+                <small
+                  *ngIf="pricingRow.get('description')?.errors?.['required']"
+                >
+                  Description is required.
+                </small>
+              </div>
+            </td>
+            <td>
+              <img
+                src="assets/icons/trash.png"
+                alt="remove"
+                id="remove"
+                (click)="removePricingRow(i)"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" (click)="addPricingRow()">Add Pricing</button>
+    </fieldset>
+
+    <!-- Working Hours Section -->
+    <fieldset>
+      <h2>Working Hours</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="hours">
+          <tr
+            *ngFor="let workingHourRow of hours.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <td>
+              <select formControlName="day">
+                <option *ngFor="let day of weekDays" [value]="day">
+                  {{ day }}
+                </option>
+              </select>
+            </td>
+            <td>
+              <input type="time" formControlName="startTime" />
+            </td>
+            <td>
+              <input type="time" formControlName="endTime" />
+            </td>
+            <td>
+              <img
+                src="assets/icons/trash.png"
+                alt="remove"
+                id="remove"
+                (click)="removeWorkingHoursRow(i)"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" (click)="addWorkingHoursRow()">Add Hours</button>
+    </fieldset>
+
+    <div class="form-group">
+      <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+      <a routerLink="/signin">Sign In</a>
+    </div>
+  </form>
+</div>

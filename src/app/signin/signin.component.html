@@ -1,0 +1,67 @@
+<nav>
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/signup">Signup</a></li>
+    <li><a routerLink="/aboutus">About Us</a></li>
+  </ul>
+</nav>
+<div class="login-container">
+  <h2>Login</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSignIn()">
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+      <div
+        *ngIf="
+          loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+        "
+      >
+        <small *ngIf="loginForm.get('email')?.errors?.['required']"
+          >Email is required.</small
+        >
+        <small *ngIf="loginForm.get('email')?.errors?.['email']"
+          >Invalid email format.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password: </label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+      <!-- <button (click)="showPassword()" type="button">Show Password</button> -->
+      <div
+        *ngIf="
+          loginForm.get('password')?.touched &&
+          loginForm.get('password')?.invalid
+        "
+      >
+        <small *ngIf="loginForm.get('password')?.errors?.['required']"
+          >Password is required.</small
+        >
+        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          Password should be 8 characters long.
+        </small>
+        <small *ngIf="loginForm.get('password')?.errors?.['pattern']">
+          Password should contain at least: 1 lower case character 1 bigger case
+          character 1 digit and a symbol
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="loginForm.invalid">Sign In</button>
+      <a routerLink="/signup">Register</a>
+    </div>
+  </form>
+</div>
+<router-outlet></router-outlet>
