@@ -1,3 +1,44 @@
 {
-	"users": []
+  "users": [
+    {
+      "id": "174f",
+      "name": "Test Yass",
+      "email": "Yass@gmail.com",
+      "phone": "+972545217344",
+      "password": "Yy12345678!",
+      "pricing": [
+        {
+          "price": 150,
+          "description": "Mohawk"
+        },
+        {
+          "price": 50,
+          "description": "Mohawk1"
+        }
+      ],
+      "hours": [
+        {
+          "day": "Sunday",
+          "startTime": "08:00",
+          "endTime": "00:00"
+        },
+        {
+          "day": "Tuesday",
+          "startTime": "10:00",
+          "endTime": "22:00"
+        }
+      ],
+      "appointments": [
+        {
+          "customerName": "Test Yass",
+          "date": "2025-02-25",
+          "time": "12:59",
+          "phone": "0545217344",
+          "haircut": "Mohawk1",
+          "edit": false
+        }
+      ],
+      "signedin": false
+    }
+  ]
 }
